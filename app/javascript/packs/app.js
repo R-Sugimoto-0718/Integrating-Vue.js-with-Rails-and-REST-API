@@ -109,8 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
         let taskIndex = this.tasks.findIndex(item => item.id == id);
 
         if (taskIndex > -1) {
-          this.$delete(this.tasks, taskIndex);
-          this.message = `Task ${id} deleted.`;
+          Api.deleteTask(id).then(function(res) {
+            app.$delete(app.tasks, taskIndex);
+            app.message = `Task ${id} deleted.`;
+          });
         }
       }
     },
