@@ -5,7 +5,3 @@ export function listTasks () {
         return res.data;
     })
 }
-
-listTasks().then(function(res) {
-    console.log(res)
-})
